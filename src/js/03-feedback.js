@@ -16,7 +16,7 @@ form.addEventListener('input', throttle(() => {
 form.addEventListener('submit', (evt) => {
     evt.preventDefault();
     form.reset();
-    localStorage.clear();
+    localStorage.removeItem("feedback-form-state");
     console.log(array)
 })
 if (data) {
