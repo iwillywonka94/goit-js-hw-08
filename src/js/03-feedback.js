@@ -6,8 +6,9 @@ const array = {
 }
 const form = document.querySelector(".feedback-form")
 const arrayFill = function () {
-    array.email = form.elements.email.value;
-    array.message = form.elements.message.value;
+    const {email, message} = form.elements
+    array.email = email.value;
+    array.message = message.value;
 }
 form.addEventListener('input', throttle(() => {
     arrayFill();
@@ -20,8 +21,9 @@ form.addEventListener('submit', (evt) => {
     console.log(array)
 })
 if (data) {
-    form[0].value = JSON.parse(data).email;
-    form[1].value = JSON.parse(data).message;
+    const {email, message} = JSON.parse(data)
+    form[0].value = email;
+    form[1].value = message;
 }
 
 arrayFill();
